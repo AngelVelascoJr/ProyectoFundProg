@@ -122,21 +122,21 @@ void CreateProfile()
 void Play()
 {
 	fflush(stdin);
-      char preguntas[25][500]={"En que año se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
+      char preguntas[25][500]={"En que anio se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
                              "Como se llama el martillo de Thor?", //Pregunta 2
                              "En The Incredible Hulk, �que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
-                             "De que está hecho el escudo del Capitan America?", //Pregunta 4
+                             "De que esta hecho el escudo del Capitan America?", //Pregunta 4
                              "Los Flerkens son una raza de alienigenas extremadamente peligrosos que se parece a que.", //Pregunta 5
                              "Antes de convertirse en Vision, �como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
                              "Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
                              "Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
                              "Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
-                             "Qué nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
-                             "De qué quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
+                             "Que nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
+                             "De que quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
                              "Donde le dice Peggy a Steve que quiere encontrarse con el para bailar, antes de que el se hunda en el hielo?", //Pregunta 12
                              "Sobre que ciudad recuerdan a menudo Hawkeye y Black Widow?", //Pregunta 13
                              "A quien sacrifica el Thanos para adquirir la Piedra del Alma?", //Pregunta 14
-                             "Cual es el nombre del niño que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
+                             "Cual es el nombre del ninio que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
                              "Donde guardan Lady Sif y Volstagg la Piedra de la Realidad despues de que los Elfos Oscuros intentaron robarla?", //pregunta 16
                              "Que dice el Soldado de Invierno despues de que Steve lo reconoce por primera vez?", //Pregunta 17
                              "Cuales fueron los tres elementos que Rocket afirma que necesita para escapar de la prision?", //Pregunta 18
@@ -145,7 +145,7 @@ void Play()
                              "Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
                              "Quien es la hermana de Black Panther?", //PRegunta 22
                              "De que hito rescata Peter Parker a sus compañeros de clase en SpiderMan: Homecoming?", //Pregunta 23
-                             "Qué cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
+                             "Que cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
                              "Que tipo de medico es Stephen Strange", //PRegunta 25
                              };
       char respuestas[25][4][100]={
@@ -159,15 +159,15 @@ void Play()
                                {"El chitauri","Los skrulls","el kree", "Los flerkens"},//1-8
                                {"Thor","Loki","El coleccionista", "Tony Stark"},//2-9
                                {"Natalie Rushman ","Natalia Romanof","Nicole Rohan", "Naya rabe"},//1-10
-                               {"Un trozo de tarta","Una pinta de cerveza","Una pila de panqueques", "Una taza de café"},//4-11
+                               {"Un trozo de tarta","Una pinta de cerveza","Una pila de panqueques", "Una taza de cafe"},//4-11
                                {"El Cotton Club","El Stork Club","El marruecos", "El copacabana"},//2-12
                                {"Budapest","Praga","Estanbul", "Sokovia"},//1-13
                                {"Nebulosa","Fauces de ebano","Obsidiana de sacrificio", "Gamora"},//4-14
                                {"Harry","Enrique","Harley", "Holden"},//3-15
                                {"En vomir","En una boveda em Asgard","Dentro de la espada de Sif", "Al coleccionista"},//4-16
-                               {"Quien diablos es Bucky","Te conozco","El se fue", "Qué dijiste"},//1-17
+                               {"Quien diablos es Bucky","Te conozco","El se fue", "Que dijiste"},//1-17
                                {"Una tarjeta de seguridad, un tenedor y un monitor de tobillo.","Una banda de seguridad, una batería y una pierna protesica.","Un par de binoculares, un detonador y una protesis de pierna.", "Un cuchillo, cables y la cinta de mezcla de Peter."},//2-18
-                               {"Culo","EStupido","Mierda", "Idiota"},//3-19
+                               {"Culo","Estupido","Mierda", "Idiota"},//3-19
                                {"Raton","Oveja","Pato", "Hamster"},//2-20
                                {"Maria Hill","Nick Fury","Agente Coulson", "Doctor Erik Selving"},//3-21
                                {"Shuri","Nakia","Ramonda", "Okoye"},//1-22
