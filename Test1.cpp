@@ -122,31 +122,31 @@ void CreateProfile()
 void Play()
 {
 	fflush(stdin);
-      char preguntas[25][500]={"¿En que año se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
-                             "¿Como se llama el martillo de Thor?", //Pregunta 2
-                             "En The Incredible Hulk, ¿que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
-                             "¿De que está hecho el escudo del Capitan America?", //Pregunta 4
+      char preguntas[25][500]={"En que año se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
+                             "Como se llama el martillo de Thor?", //Pregunta 2
+                             "En The Incredible Hulk, �que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
+                             "De que está hecho el escudo del Capitan America?", //Pregunta 4
                              "Los Flerkens son una raza de alienigenas extremadamente peligrosos que se parece a que.", //Pregunta 5
-                             "Antes de convertirse en Vision, ¿como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
-                             "¿Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
-                             "¿Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
-                             "¿Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
-                             "¿Qué nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
-                             "¿De qué quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
-                             "¿Donde le dice Peggy a Steve que quiere encontrarse con el para bailar, antes de que el se hunda en el hielo?", //Pregunta 12
-                             "¿Sobre que ciudad recuerdan a menudo Hawkeye y Black Widow?", //Pregunta 13
-                             "¿A quien sacrifica el Thanos para adquirir la Piedra del Alma?", //Pregunta 14
-                             "¿Cual es el nombre del niño que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
-                             "¿Donde guardan Lady Sif y Volstagg la Piedra de la Realidad despues de que los Elfos Oscuros intentaron robarla?", //pregunta 16
-                             "¿Que dice el Soldado de Invierno despues de que Steve lo reconoce por primera vez?", //Pregunta 17
-                             " ¿Cuales fueron los tres elementos que Rocket afirma que necesita para escapar de la prision?", //Pregunta 18
-                             "¿Que palabra pronuncia Tony que hace que Steve diga Lenguaje?", //Pregunta 19
-                             "¿Que animal encoge Darren Cross sin exito en Ant Man?", //Pregunta 20
-                             "¿Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
-                             "¿Quien es la hermana de Black Panther?", //PRegunta 22
-                             "¿De que hito rescata Peter Parker a sus compañeros de clase en SpiderMan: Homecoming?", //Pregunta 23
-                             "¿Qué cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
-                             "¿Que tipo de medico es Stephen Strange", //PRegunta 25
+                             "Antes de convertirse en Vision, �como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
+                             "Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
+                             "Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
+                             "Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
+                             "Qué nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
+                             "De qué quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
+                             "Donde le dice Peggy a Steve que quiere encontrarse con el para bailar, antes de que el se hunda en el hielo?", //Pregunta 12
+                             "Sobre que ciudad recuerdan a menudo Hawkeye y Black Widow?", //Pregunta 13
+                             "A quien sacrifica el Thanos para adquirir la Piedra del Alma?", //Pregunta 14
+                             "Cual es el nombre del niño que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
+                             "Donde guardan Lady Sif y Volstagg la Piedra de la Realidad despues de que los Elfos Oscuros intentaron robarla?", //pregunta 16
+                             "Que dice el Soldado de Invierno despues de que Steve lo reconoce por primera vez?", //Pregunta 17
+                             "Cuales fueron los tres elementos que Rocket afirma que necesita para escapar de la prision?", //Pregunta 18
+                             "Que palabra pronuncia Tony que hace que Steve diga Lenguaje?", //Pregunta 19
+                             "Que animal encoge Darren Cross sin exito en Ant Man?", //Pregunta 20
+                             "Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
+                             "Quien es la hermana de Black Panther?", //PRegunta 22
+                             "De que hito rescata Peter Parker a sus compañeros de clase en SpiderMan: Homecoming?", //Pregunta 23
+                             "Qué cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
+                             "Que tipo de medico es Stephen Strange", //PRegunta 25
                              };
       char respuestas[25][4][100]={
                                {"2005","2008","2010", "2012"},//2-1
@@ -244,7 +244,7 @@ void Play()
       
       printf("Tu puntaje es %d\n", puntaje);
       if (puntaje<5) 
-      { printf("¿De verdad eres fan de marvel?\n");
+      { printf("�De verdad eres fan de marvel?\n");
 	  } else if (puntaje=6)
 	  {printf("Seguro eres fan de marvel por moda\n");
 	  } else if (puntaje=7)
@@ -254,7 +254,7 @@ void Play()
 	  } else if (puntaje=9)
 	  {printf("Eres muy bueno\n");
 	  }
-	  else{printf("¿Estas bien?\n");
+	  else{printf("�Estas bien?\n");
 	  }
  
             system("pause");//pausa
