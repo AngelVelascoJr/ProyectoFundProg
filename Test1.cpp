@@ -89,7 +89,6 @@ void LogIn()
 
 void CreateProfile()
 {
-	printf("entra en create profile");
 	if(UserIndex = -1)
 		DataFromFile();
 	DataFile = fopen("file.txt" , "a");
