@@ -300,7 +300,7 @@ void DataFromFile()	//carga el archivo de perfiles
 	DataFile = fopen("file.txt" , "r");
 	while(i < ArraySize)
 	{
-		char Var[40], JJ[3], JG[3];
+		char Var[40], JJ[3], JG[3], m5[3], _6[3], _7[3], _8[3], _9[3], _10[3];
 		int j = 0;
 		for (char c = getc(DataFile); c != '\n'; c = getc(DataFile))
 		{
@@ -311,9 +311,16 @@ void DataFromFile()	//carga el archivo de perfiles
 			}
 			if(c == EOF)	break;
 		}
-		sscanf(Var,"%s %s %s %s", &Users[i].Username, &Users[i].Password, &JJ, &JG);
-		Users[i].JuegosJugados = strtol(JJ,NULL,10);
-		Users[i].JuegosGanados = strtol(JG,NULL,10);
+		sscanf(Var,"%s %s %s %s %s %s %s %s %s", &Users[i].Username, &Users[i].Password, &m5, 
+		&_6, &_7, &_8, &_9,	&_10/*&JJ, &JG*/);
+		//Users[i].JuegosJugados = strtol(JJ,NULL,10);
+		//Users[i].JuegosGanados = strtol(JG,NULL,10);
+		Users[i].CalifPorJuego[0] = strtol(m5,NULL,10);
+		Users[i].CalifPorJuego[1] = strtol(_6,NULL,10);
+		Users[i].CalifPorJuego[2] = strtol(_7,NULL,10);
+		Users[i].CalifPorJuego[3] = strtol(_8,NULL,10);
+		Users[i].CalifPorJuego[4] = strtol(_9,NULL,10);
+		Users[i].CalifPorJuego[5] = strtol(_10,NULL,10);
 		i++;
 	}
 	fclose(DataFile);
@@ -326,9 +333,9 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 	while(i < ArraySize)
 	{
 		if(i == ArraySize - 1)
-			fprintf(DataFile, "%s %s %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].JuegosGanados);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		else
-			fprintf(DataFile, "%s %s %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].JuegosGanados);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		i++;
 	}
 	fclose(DataFile);
