@@ -122,7 +122,7 @@ void CreateProfile()
 	}while(IsValid == false);
 	fprintf(DataFile, "\n%s %s %i %i", VarUsName, VarPassW, 0, 0);
 	printf("Se ha guardado su perfil\n");
-	Sleep(3000);
+	system("pause");
 	system("cls");
 	fclose(DataFile);
 }
