@@ -257,16 +257,22 @@ void Play()
       printf("Tu puntaje es %d\n", puntaje);
       if (puntaje<=5) 
       { printf("De verdad eres fan de marvel?\n");
+      Users[UserIndex].CalifPorJuego[0]++;
 	  } else if (puntaje==6)
 	  {printf("Seguro eres fan de marvel por moda\n");
+	  Users[UserIndex].CalifPorJuego[1]++;
 	  } else if (puntaje==7)
 	  {printf("Bueno al menos sabes algo\n");
+	  Users[UserIndex].CalifPorJuego[2]++;
 	  } else if (puntaje==8)
 	  {printf("Perfecto, ni tan geek ,ni tan poser\n");
+	  Users[UserIndex].CalifPorJuego[3]++;
 	  } else if (puntaje==9)
 	  {printf("Eres muy bueno\n");
+	  Users[UserIndex].CalifPorJuego[4]++;
 	  }
 	  else{printf("Estas bien?\n");
+	  Users[UserIndex].CalifPorJuego[5]++;
 	  }
  
             system("pause");//pausa
@@ -275,7 +281,7 @@ void Play()
 
 void Stadistics()
 {
-	/*
+	
 	printf("UserName: %s\n", &Users[UserIndex].Username);
 	printf("Password: %s\n", &Users[UserIndex].Password);
 	printf("JuegosJugados: %i\n", Users[UserIndex].JuegosJugados);
@@ -284,7 +290,7 @@ void Stadistics()
 	printf("7: %i\n", Users[UserIndex].CalifPorJuego[2]);
 	printf("8: %i\n", Users[UserIndex].CalifPorJuego[3]);
 	printf("9: %i\n", Users[UserIndex].CalifPorJuego[4]);
-	printf("10: %i\n", Users[UserIndex].CalifPorJuego[5]);*/
+	printf("10: %i\n", Users[UserIndex].CalifPorJuego[5]);
 }
 
 void DataFromFile()	//carga el archivo de perfiles
@@ -341,9 +347,9 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 	while(i < ArraySize)
 	{
 		if(i == ArraySize - 1)
-			fprintf(DataFile, "%s %s %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		else
-			fprintf(DataFile, "%s %s %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		i++;
 	}
 	fclose(DataFile);
