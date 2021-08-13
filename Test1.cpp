@@ -10,6 +10,7 @@ struct Jugador
 	char *Password;
 	int JuegosJugados;
 	int JuegosGanados;
+	int CalifPorJuego[6];
 };
 int n = 1, Op, UserIndex = -1, ArraySize;	//User index se puede usar como variable para checar si se ha 
 											//iniciado sesion, se mantendra como -1 si no, se cambiara a 0->n si si
@@ -113,7 +114,7 @@ void CreateProfile()
 			}
 		}
 	}while(IsValid == false);
-	fprintf(DataFile, "\n%s %s %i %i", VarUsName, VarPassW, 0, 0);
+	fprintf(DataFile, "\n%s %s %i %i %i %i %i %i %i", VarUsName, VarPassW, 0, 0, 0, 0, 0, 0, 0);//nombre, contrasena, juegos jugados, cant de veces que obtuvo menosque5, 6, 7, 8, 9, 10
 	printf("Se ha guardado su perfil\n");
 	Sleep(3000);
 	system("cls");
