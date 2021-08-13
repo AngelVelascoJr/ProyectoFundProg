@@ -118,7 +118,7 @@ void CreateProfile()
 	printf("Se ha guardado su perfil\n");
 	system("pause");
 	fclose(DataFile);
-	//system("cls");
+	system("cls");
 }
 
 void Play()
@@ -303,18 +303,52 @@ void Play()
 
 void Stadistics()
 {
-	/*
-	printf("UserName: %s\n", &Users[UserIndex].Username);
-	printf("Password: %s\n", &Users[UserIndex].Password);
-	printf("JuegosJugados: %i\n", Users[UserIndex].JuegosJugados);
-	printf("menor que 5: %i\n", Users[UserIndex].CalifPorJuego[0]);
-	printf("6: %i\n", Users[UserIndex].CalifPorJuego[1]);
-	printf("7: %i\n", Users[UserIndex].CalifPorJuego[2]);
-	printf("8: %i\n", Users[UserIndex].CalifPorJuego[3]);
-	printf("9: %i\n", Users[UserIndex].CalifPorJuego[4]);
-	printf("10: %i\n", Users[UserIndex].CalifPorJuego[5]);
-	*/
+	int columna, columna2, columna3, columna4, q, k;
+	int x = 6, y, z[100], mayor=0, menor=0;
+	for (y=1; y<=x; y++){
+		z[y] = Users[UserIndex].CalifPorJuego[y-1];
+		//system ("cls");
+		if (mayor < z[y]){
+			mayor = z[y];
+		}
+		if (menor > z[y]){
+			menor = z[y];	
+		}
+	}
+	columna = mayor;
+	columna2 = mayor;
+	columna3 = mayor;
+	columna4 = mayor;
+	printf("aqui estan tus estadisticas, las filas representan la cantidad de veces que has sacado esa puntuacion\nlas columnas representan las puntuaciones\n");
+	for (q=1; q <= columna; q++){
+		printf ("%i\t",columna2);
+		columna2=columna2-1;
+		for (k=1; k<=x; k++){
+			if (z[k]>=columna3){
+				printf ("*  ");
+			}
+			else{
+				printf ("   ");
+			}
+		}
+		columna3 = columna3 -1;
+		printf  ("\n");
+	}
+	printf  ("\t");
+	for (columna4=1; columna4<=x;columna4++){
+		if(columna4==1){
+			printf(">%i ", columna4+4);
+		}
+		else{
+			printf("%i  ", columna4+4);
+		}
+	}
+	printf ("\n");
+	printf ("\n");
+	system ("pause");
+	system("cls");
 }
+
 
 void DataFromFile()	//carga el archivo de perfiles
 {
