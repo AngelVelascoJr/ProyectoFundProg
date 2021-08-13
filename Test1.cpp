@@ -343,7 +343,6 @@ void DataFromFile()	//carga el archivo de perfiles
 		}
 		sscanf(Var,"%s %s %s %s %s %s %s %s %s", &Users[i].Username, &Users[i].Password, &JJ, &m5, &v6, &v7, &v8, &v9, &v10/*&JJ, &JG*/);
 		Users[i].JuegosJugados = strtol(JJ,NULL,10);
-		//Users[i].JuegosGanados = strtol(JG,NULL,10);
 		Users[i].CalifPorJuego[0] = strtol(m5,NULL,10);
 		Users[i].CalifPorJuego[1] = strtol(v6,NULL,10);
 		Users[i].CalifPorJuego[2] = strtol(v7,NULL,10);
