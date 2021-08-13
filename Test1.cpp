@@ -10,6 +10,7 @@ struct Jugador
 	char *Password;
 	int JuegosJugados;
 	int JuegosGanados;
+	int CalifPorJuego[6];
 };
 int n = 1, Op, UserIndex = -1, ArraySize;	//User index se puede usar como variable para checar si se ha 
 											//iniciado sesion, se mantendra como -1 si no, se cambiara a 0->n si si
@@ -84,6 +85,12 @@ void LogIn()
 		}
 		if(IsValid == false)	printf("Usuario o contrasena incorrectos\n");
 	}while(IsValid == false);
+	Users[UserIndex].CalifPorJuego[0] = 10;		//eliminar despues, solo para debug
+	Users[UserIndex].CalifPorJuego[1] = 1;
+	Users[UserIndex].CalifPorJuego[2] = 2;
+	Users[UserIndex].CalifPorJuego[3] = 3;
+	Users[UserIndex].CalifPorJuego[4] = 0;
+	Users[UserIndex].CalifPorJuego[5] = 4;
 }
 
 void CreateProfile()
@@ -275,13 +282,10 @@ void Play()
 void Stadistics()
 {
 	int columna, columna2, columna3, columna4, q, k;
-	int x, y, z[100], mayor=0, menor=0/*, veces/*, veces2/*, acum1=0, acum2[100]*/;
-	printf ("Escriba la cantidad de datos ");
-	scanf ("%i", &x);
+	int x = 6, y, z[100], mayor=0, menor=0;
 	for (y=1; y<=x; y++){
-		printf("Ingrese la frecuencia del dato %i ", y);
-		scanf("%i",&z[y]);
-		system ("cls");
+		z[y] = Users[UserIndex].CalifPorJuego[y-1];
+		//system ("cls");
 		if (mayor < z[y]){
 			mayor = z[y];
 		}
@@ -293,27 +297,34 @@ void Stadistics()
 	columna2 = mayor;
 	columna3 = mayor;
 	columna4 = mayor;
+	printf("aqui estan tus estadisticas, las filas representan la cantidad de veces que has sacado esa puntuacion\nlas columnas representan las puntuaciones\n");
 	for (q=1; q <= columna; q++){
-		printf ("%i  ",columna2);
+		printf ("%i\t",columna2);
 		columna2=columna2-1;
 		for (k=1; k<=x; k++){
 			if (z[k]>=columna3){
-				printf ("* ");
+				printf ("*  ");
 			}
 			else{
-				printf ("  ");
+				printf ("   ");
 			}
 		}
 		columna3 = columna3 -1;
 		printf  ("\n");
 	}
-	printf  ("  ");
+	printf  ("\t");
 	for (columna4=1; columna4<=x;columna4++){
-		printf(" %i", columna4);
+		if(columna4==1){
+			printf(">%i ", columna4+4);
+		}
+		else{
+			printf("%i  ", columna4+4);
+		}
 	}
 	printf ("\n");
 	printf ("\n");
 	system ("pause");
+	system("cls");
 }
 
 void DataFromFile()	//carga el archivo de perfiles
