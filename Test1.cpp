@@ -67,7 +67,7 @@ void LogIn()
 		printf("Dame tu usuario: ");
 		fflush(stdin);
 		gets(VarUsName);
-		printf("Dame tu contraseÃ±a: ");
+		printf("Dame tu contrasena: ");
 		gets(VarPassW);
 		for(int i = 0; i < ArraySize; i++)
 		{
@@ -82,6 +82,7 @@ void LogIn()
 				}
 			}
 		}
+		if(IsValid == false)	printf("Usuario o contrasena incorrectos\n");
 	}while(IsValid == false);
 }
 
@@ -97,7 +98,7 @@ void CreateProfile()
 		printf("Dame tu usuario: ");
 		fflush(stdin);
 		gets(VarUsName);
-		printf("Dame tu contraseÃ±a: ");
+		printf("Dame tu contrasena: ");
 		gets(VarPassW);
 		IsValid = true;
 		for(int i = 0; i < ArraySize; i++)
@@ -120,35 +121,35 @@ void CreateProfile()
 }
 
 void Play()
-{
-	fflush(stdin);
-      char preguntas[25][500]={"En que anio se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
-                             "Como se llama el martillo de Thor?", //Pregunta 2
-                             "En The Incredible Hulk, ¿que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
-                             "De que esta hecho el escudo del Capitan America?", //Pregunta 4
-                             "Los Flerkens son una raza de alienigenas extremadamente peligrosos que se parece a que.", //Pregunta 5
-                             "Antes de convertirse en Vision, ¿como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
-                             "Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
-                             "Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
-                             "Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
-                             "Que nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
-                             "De que quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
-                             "Donde le dice Peggy a Steve que quiere encontrarse con el para bailar, antes de que el se hunda en el hielo?", //Pregunta 12
-                             "Sobre que ciudad recuerdan a menudo Hawkeye y Black Widow?", //Pregunta 13
-                             "A quien sacrifica el Thanos para adquirir la Piedra del Alma?", //Pregunta 14
-                             "Cual es el nombre del ninio que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
-                             "Donde guardan Lady Sif y Volstagg la Piedra de la Realidad despues de que los Elfos Oscuros intentaron robarla?", //pregunta 16
-                             "Que dice el Soldado de Invierno despues de que Steve lo reconoce por primera vez?", //Pregunta 17
-                             "Cuales fueron los tres elementos que Rocket afirma que necesita para escapar de la prision?", //Pregunta 18
-                             "Que palabra pronuncia Tony que hace que Steve diga Lenguaje?", //Pregunta 19
-                             "Que animal encoge Darren Cross sin exito en Ant Man?", //Pregunta 20
-                             "Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
-                             "Quien es la hermana de Black Panther?", //PRegunta 22
-                             "De que hito rescata Peter Parker a sus compaÃ±eros de clase en SpiderMan: Homecoming?", //Pregunta 23
-                             "Que cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
-                             "Que tipo de medico es Stephen Strange", //PRegunta 25
-                             };
-      char respuestas[25][4][100]={
+{					
+	fflush(stdin);	
+	char preguntas[25][500]={"En que anio se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
+	                         "Como se llama el martillo de Thor?", //Pregunta 2
+	                         "En The Incredible Hulk, que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
+	                         "De que esta hecho el escudo del Capitan America?", //Pregunta 4
+	                         "Los Flerkens son una raza de alienigenas extremadamente peligrosos que se parece a que.", //Pregunta 5
+	                         "Antes de convertirse en Vision, como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
+	                         "Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
+	                         "Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
+	                         "Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
+	                         "Que nombre falso usa Natasha cuando conoce a Tony por primera vez?", //Pregunta 10
+	                         "De que quiere Thor otro cuando esta en el restaurante?", //Pregunta 11
+	                         "Donde le dice Peggy a Steve que quiere encontrarse con el para bailar, antes de que el se hunda en el hielo?", //Pregunta 12
+	                         "Sobre que ciudad recuerdan a menudo Hawkeye y Black Widow?", //Pregunta 13
+	                         "A quien sacrifica el Thanos para adquirir la Piedra del Alma?", //Pregunta 14
+	                         "Cual es el nombre del ninio que Tony se hace amigo mientras esta varado en Iron Man 3?", //Pregunta 15
+	                         "Donde guardan Lady Sif y Volstagg la Piedra de la Realidad despues de que los Elfos Oscuros intentaron robarla?", //pregunta 16
+	                         "Que dice el Soldado de Invierno despues de que Steve lo reconoce por primera vez?", //Pregunta 17
+	                         "Cuales fueron los tres elementos que Rocket afirma que necesita para escapar de la prision?", //Pregunta 18
+	                         "Que palabra pronuncia Tony que hace que Steve diga Lenguaje?", //Pregunta 19
+	                         "Que animal encoge Darren Cross sin exito en Ant Man?", //Pregunta 20
+	                         "Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
+	                         "Quien es la hermana de Black Panther?", //PRegunta 22
+	                         "De que hito rescata Peter Parker a sus companeros de clase en SpiderMan: Homecoming?", //Pregunta 23
+	                         "Que cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
+	                         "Que tipo de medico es Stephen Strange", //PRegunta 25
+	                         };
+    char respuestas[25][4][100]={
                                {"2005","2008","2010", "2012"},//2-1
                                {"Vanir","Mjolnir","Aesir", "Norn"},//2-2
                                {"Que quiere estudiar The Hulk","Que el sabe sobre SHIELD","Que estan formando un equipo", "Que Thaddeus le debe dinero"},//3-3
@@ -180,40 +181,48 @@ void Play()
       int buenas[25]={1,1,2,1,0,1,0,0,1,0,3,1,0,3,2,3,0,1,2,1,
                       2,0,0,2,0};//#respuesta-1
       int i,j,k,pregun,pexiste,rexiste,bien,respondio,puntaje ;
-      int pregunta[1];
+      int pregunta[10];
       int respuesta[4];
       srand(time(NULL));//para que los numeros sean al azar siempre
       for(i=0;i<10;i++) //para 10 preguntas
       {
            do{
                pexiste=0;
-               pregunta[i]=rand()%25+1;//selecciona lazar una pregunta
-               if(i!=1)
+               pregunta[i]=rand()%25;//selecciona lazar una pregunta
+               //if(i!=1)
                {
-                       j=i;
-                       for(j;j>(-1);j--)
+                       //j=i;
+                       for(j=i;j>(-1);j--)							
                        {
-                             if(pregunta[i]==pregunta[j-1])
-                             {
-                                 pexiste=1;
+                       	//printf("entro");
+                             if(pregunta[i]==pregunta[j-1])			
+                             {										
+                                 pexiste=1;							
                              }
                        }
                }
            }while(pexiste==1);
- 
+		//printf("la pregunta que se guardo es: %s\n", preguntas[pregunta[i]]);
+		//printf("\tLas respuestas guardadas son: %s, %s, %s, %s\n", respuestas[pregunta[i]][0], respuestas[pregunta[i]][1], respuestas[pregunta[i]][2], respuestas[pregunta[i]][3]);
+
           printf("\n%s %d\n",preguntas[pregunta[i]],pregunta[i]);//se imprime el enunciado de la pregunta
  
           for(k=0;k<4;k++)//se imprimen sus 4 posibles respuestas alazar
           {
                 do{
                    rexiste=0;
-                   respuesta[k]=(rand()%5);//selsciona lazar una posible respuesta
- 
-                   if(i!=1)
+                   respuesta[k]=(rand()%4);//selecciona lazar una posible respuesta
+            		//printf("\tvalor aleatorio de respuesta es: %i\n", respuesta[k]);
+            		//printf("\tse busca dentro de respuestas[pregunta[%i]][respuesta[%i]]\n", i, k);
+            		//printf("\tes decir dentro de respuestas[%i][%i]\n", pregunta[i], respuesta[k]);
+            		//printf("\trespuesta referida al valor aleatorio: %s\n", respuestas[pregunta[i]][respuesta[k]]);
+                   //if(i!=1)
                    {
-                           j=k;
-                           for(j;j>(-1);j--)
+                           //j=k;
+                           for(j=k;j>(-1);j--)
                            {
+                           	    //printf("\t\tvalor de i: %i, valor de j: %i, valor de k: %i\n", i, j, k);
+
                                  if(respuesta[k]==respuesta[j-1])//cuando ya se uso ya no se usa
                                  {
                                      rexiste=1;
@@ -221,9 +230,11 @@ void Play()
                            }
                    }
                }while(rexiste==1);
+                //printf("\timprimiendo la respuesta en respuestas[pregunta[%i]][respuesta[%i]] = %s\n", i, k, respuestas[pregunta[i]][respuesta[k]]);
                printf("%d.- %s\n ",k+1,respuestas[pregunta[i]][respuesta[k]]);//impprime la posibles respuesta "\t" en vez de  "\n"
                if(k==buenas[pregunta[i]]) //calcula cual es numero de la respuesta buena
                {
+               	//printf("valor de bien: %i", k);
                   bien=k;
                }
  
@@ -243,22 +254,22 @@ void Play()
       }
       
       printf("Tu puntaje es %d\n", puntaje);
-      if (puntaje<5) 
-      { printf("¿De verdad eres fan de marvel?\n");
-	  } else if (puntaje=6)
+      if (puntaje<=5) 
+      { printf("De verdad eres fan de marvel?\n");
+	  } else if (puntaje==6)
 	  {printf("Seguro eres fan de marvel por moda\n");
-	  } else if (puntaje=7)
+	  } else if (puntaje==7)
 	  {printf("Bueno al menos sabes algo\n");
-	  } else if (puntaje=8)
+	  } else if (puntaje==8)
 	  {printf("Perfecto, ni tan geek ,ni tan poser\n");
-	  } else if (puntaje=9)
+	  } else if (puntaje==9)
 	  {printf("Eres muy bueno\n");
 	  }
-	  else{printf("¿Estas bien?\n");
+	  else{printf("Estas bien?\n");
 	  }
  
             system("pause");//pausa
-
+		system("cls");
 }
 
 void Stadistics()
