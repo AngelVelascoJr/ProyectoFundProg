@@ -274,7 +274,46 @@ void Play()
 
 void Stadistics()
 {
-	
+	int columna, columna2, columna3, columna4, q, k;
+	int x, y, z[100], mayor=0, menor=0/*, veces/*, veces2/*, acum1=0, acum2[100]*/;
+	printf ("Escriba la cantidad de datos ");
+	scanf ("%i", &x);
+	for (y=1; y<=x; y++){
+		printf("Ingrese la frecuencia del dato %i ", y);
+		scanf("%i",&z[y]);
+		system ("cls");
+		if (mayor < z[y]){
+			mayor = z[y];
+		}
+		if (menor > z[y]){
+			menor = z[y];	
+		}
+	}
+	columna = mayor;
+	columna2 = mayor;
+	columna3 = mayor;
+	columna4 = mayor;
+	for (q=1; q <= columna; q++){
+		printf ("%i  ",columna2);
+		columna2=columna2-1;
+		for (k=1; k<=x; k++){
+			if (z[k]>=columna3){
+				printf ("* ");
+			}
+			else{
+				printf ("  ");
+			}
+		}
+		columna3 = columna3 -1;
+		printf  ("\n");
+	}
+	printf  ("  ");
+	for (columna4=1; columna4<=x;columna4++){
+		printf(" %i", columna4);
+	}
+	printf ("\n");
+	printf ("\n");
+	system ("pause");
 }
 
 void DataFromFile()	//carga el archivo de perfiles
@@ -332,3 +371,4 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 	}
 	fclose(DataFile);
 }
+
