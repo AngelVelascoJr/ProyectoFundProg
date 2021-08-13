@@ -89,6 +89,7 @@ void LogIn()
 
 void CreateProfile()
 {
+	printf("entra en create profile");
 	if(UserIndex = -1)
 		DataFromFile();
 	DataFile = fopen("file.txt" , "a");
@@ -116,8 +117,7 @@ void CreateProfile()
 	}while(IsValid == false);
 	fprintf(DataFile, "\n%s %s %i %i %i %i %i %i %i", VarUsName, VarPassW, 0, 0, 0, 0, 0, 0, 0);//nombre, contrasena, juegos jugados, cant de veces que obtuvo menosque5, 6, 7, 8, 9, 10
 	printf("Se ha guardado su perfil\n");
-	Sleep(3000);
-	system("cls");
+	system("pause");
 	fclose(DataFile);
 }
 
@@ -275,7 +275,15 @@ void Play()
 
 void Stadistics()
 {
-	
+	printf("UserName: %s\n", &Users[UserIndex].Username);
+	printf("Password: %s\n", &Users[UserIndex].Password);
+	printf("JuegosJugados: %i\n", Users[UserIndex].JuegosJugados);
+	printf("menor que 5: %i\n", Users[UserIndex].CalifPorJuego[0]);
+	printf("6: %i\n", Users[UserIndex].CalifPorJuego[1]);
+	printf("7: %i\n", Users[UserIndex].CalifPorJuego[2]);
+	printf("8: %i\n", Users[UserIndex].CalifPorJuego[3]);
+	printf("9: %i\n", Users[UserIndex].CalifPorJuego[4]);
+	printf("10: %i\n", Users[UserIndex].CalifPorJuego[5]);
 }
 
 void DataFromFile()	//carga el archivo de perfiles
@@ -300,7 +308,7 @@ void DataFromFile()	//carga el archivo de perfiles
 	DataFile = fopen("file.txt" , "r");
 	while(i < ArraySize)
 	{
-		char Var[40], JJ[3], JG[3], m5[3], _6[3], _7[3], _8[3], _9[3], _10[3];
+		char Var[80], JJ[3], JG[3], m5[3], v6[3], v7[3], v8[3], v9[3], v10[3];
 		int j = 0;
 		for (char c = getc(DataFile); c != '\n'; c = getc(DataFile))
 		{
@@ -311,16 +319,15 @@ void DataFromFile()	//carga el archivo de perfiles
 			}
 			if(c == EOF)	break;
 		}
-		sscanf(Var,"%s %s %s %s %s %s %s %s %s", &Users[i].Username, &Users[i].Password, &m5, 
-		&_6, &_7, &_8, &_9,	&_10/*&JJ, &JG*/);
-		//Users[i].JuegosJugados = strtol(JJ,NULL,10);
+		sscanf(Var,"%s %s %s %s %s %s %s %s %s %s", &Users[i].Username, &Users[i].Password, &JJ, &m5, &v6, &v7, &v8, &v9, &v10/*&JJ, &JG*/);
+		Users[i].JuegosJugados = strtol(JJ,NULL,10);
 		//Users[i].JuegosGanados = strtol(JG,NULL,10);
 		Users[i].CalifPorJuego[0] = strtol(m5,NULL,10);
-		Users[i].CalifPorJuego[1] = strtol(_6,NULL,10);
-		Users[i].CalifPorJuego[2] = strtol(_7,NULL,10);
-		Users[i].CalifPorJuego[3] = strtol(_8,NULL,10);
-		Users[i].CalifPorJuego[4] = strtol(_9,NULL,10);
-		Users[i].CalifPorJuego[5] = strtol(_10,NULL,10);
+		Users[i].CalifPorJuego[1] = strtol(v6,NULL,10);
+		Users[i].CalifPorJuego[2] = strtol(v7,NULL,10);
+		Users[i].CalifPorJuego[3] = strtol(v8,NULL,10);
+		Users[i].CalifPorJuego[4] = strtol(v9,NULL,10);
+		Users[i].CalifPorJuego[5] = strtol(v10,NULL,10);
 		i++;
 	}
 	fclose(DataFile);
@@ -333,9 +340,9 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 	while(i < ArraySize)
 	{
 		if(i == ArraySize - 1)
-			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		else
-			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		i++;
 	}
 	fclose(DataFile);
