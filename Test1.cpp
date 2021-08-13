@@ -202,7 +202,7 @@ void Play()
 	                       }
 	               }
 	           }while(pexiste==1);
-	          printf("\n%s %d\n",preguntas[pregunta[i]],pregunta[i]);//se imprime el enunciado de la pregunta
+	          printf("\n%s\n",preguntas[pregunta[i]]/*,pregunta[i]*/);//se imprime el enunciado de la pregunta
 	 
 	          for(k=0;k<4;k++)//se imprimen sus 4 posibles respuestas alazar
 	          {
@@ -223,7 +223,7 @@ void Play()
 	                           }
 	                   }
 	               }while(rexiste==1);
-	               printf("%d.- %s\n ",k+1,respuestas[pregunta[i]][respuesta[k]]);//impprime la posibles respuesta "\t" en vez de  "\n"
+	               printf("%d.- %s\n",k+1,respuestas[pregunta[i]][respuesta[k]]);//impprime la posibles respuesta "\t" en vez de  "\n"
 	          }
 	          printf("Respuesta: ");
 	               scanf("%d",&respondio);
@@ -237,8 +237,8 @@ void Play()
 	                   printf("Incorrecto ");
 	               }
 	      }
-	      
-	      printf("Tu puntaje es %d\n", puntaje);
+	      Users[UserIndex].JuegosJugados++;
+	      printf("\nTu puntaje es %d\n", puntaje);
 	      if (puntaje<=5) 
 	      { printf("De verdad eres fan de marvel?\n");
 	      Users[UserIndex].CalifPorJuego[0]++;
@@ -285,6 +285,7 @@ void Stadistics()
 		columna3 = mayor;
 		columna4 = mayor;
 		printf("aqui estan tus estadisticas, las filas representan la cantidad de veces que has sacado esa puntuacion\nlas columnas representan las puntuaciones\n");
+		printf("has jugado %i veces\n\n", Users[UserIndex].JuegosJugados);
 		for (q=1; q <= columna; q++){
 			printf ("%i\t",columna2);
 			columna2=columna2-1;
