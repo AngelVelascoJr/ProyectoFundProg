@@ -281,7 +281,7 @@ void Play()
 
 void Stadistics()
 {
-	
+	/*
 	printf("UserName: %s\n", &Users[UserIndex].Username);
 	printf("Password: %s\n", &Users[UserIndex].Password);
 	printf("JuegosJugados: %i\n", Users[UserIndex].JuegosJugados);
@@ -291,7 +291,7 @@ void Stadistics()
 	printf("8: %i\n", Users[UserIndex].CalifPorJuego[3]);
 	printf("9: %i\n", Users[UserIndex].CalifPorJuego[4]);
 	printf("10: %i\n", Users[UserIndex].CalifPorJuego[5]);
-	
+	*/
 }
 
 void DataFromFile()	//carga el archivo de perfiles
