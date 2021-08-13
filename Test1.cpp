@@ -67,7 +67,7 @@ void LogIn()
 		printf("Dame tu usuario: ");
 		fflush(stdin);
 		gets(VarUsName);
-		printf("Dame tu contraseña: ");
+		printf("Dame tu contraseÃ±a: ");
 		gets(VarPassW);
 		for(int i = 0; i < ArraySize; i++)
 		{
@@ -97,7 +97,7 @@ void CreateProfile()
 		printf("Dame tu usuario: ");
 		fflush(stdin);
 		gets(VarUsName);
-		printf("Dame tu contraseña: ");
+		printf("Dame tu contraseÃ±a: ");
 		gets(VarPassW);
 		IsValid = true;
 		for(int i = 0; i < ArraySize; i++)
@@ -124,10 +124,10 @@ void Play()
 	fflush(stdin);
       char preguntas[25][500]={"En que anio se estreno la primera pelicula de Iron Man, que lanzo el Marvel Cinematic Universe?", //Pregunta 1
                              "Como se llama el martillo de Thor?", //Pregunta 2
-                             "En The Incredible Hulk, �que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
+                             "En The Incredible Hulk, ¿que le dice Tony a Thaddeus Ross al final de la pelicula?", //Pregunta 3
                              "De que esta hecho el escudo del Capitan America?", //Pregunta 4
                              "Los Flerkens son una raza de alienigenas extremadamente peligrosos que se parece a que.", //Pregunta 5
-                             "Antes de convertirse en Vision, �como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
+                             "Antes de convertirse en Vision, ¿como se llama el mayordomo de inteligencia artificial de Iron Man?", //Pregunta 6
                              "Cual es el verdadero nombre de la Pantera Negra?", //Pregunta 7
                              "Cual es la raza alienigena que Loki envia para invadir la Tierra en The Avengers?", //Pregunta 8
                              "Quien fue el ultimo titular de la Piedra espacial antes de que Thanos lo reclame por su Infinity Gauntlet?", //Pregunta 9
@@ -144,7 +144,7 @@ void Play()
                              "Que animal encoge Darren Cross sin exito en Ant Man?", //Pregunta 20
                              "Quien es asesinado por Loki en los Vengadores?", //Pregunta 21
                              "Quien es la hermana de Black Panther?", //PRegunta 22
-                             "De que hito rescata Peter Parker a sus compañeros de clase en SpiderMan: Homecoming?", //Pregunta 23
+                             "De que hito rescata Peter Parker a sus compaÃ±eros de clase en SpiderMan: Homecoming?", //Pregunta 23
                              "Que cancion baila Baby Groot al final del primer Guardian of the Galaxy?", //Pregunta 24
                              "Que tipo de medico es Stephen Strange", //PRegunta 25
                              };
@@ -166,7 +166,7 @@ void Play()
                                {"Harry","Enrique","Harley", "Holden"},//3-15
                                {"En vomir","En una boveda em Asgard","Dentro de la espada de Sif", "Al coleccionista"},//4-16
                                {"Quien diablos es Bucky","Te conozco","El se fue", "Que dijiste"},//1-17
-                               {"Una tarjeta de seguridad, un tenedor y un monitor de tobillo.","Una banda de seguridad, una batería y una pierna protesica.","Un par de binoculares, un detonador y una protesis de pierna.", "Un cuchillo, cables y la cinta de mezcla de Peter."},//2-18
+                               {"Una tarjeta de seguridad, un tenedor y un monitor de tobillo.","Una banda de seguridad, una baterÃ­a y una pierna protesica.","Un par de binoculares, un detonador y una protesis de pierna.", "Un cuchillo, cables y la cinta de mezcla de Peter."},//2-18
                                {"Culo","Estupido","Mierda", "Idiota"},//3-19
                                {"Raton","Oveja","Pato", "Hamster"},//2-20
                                {"Maria Hill","Nick Fury","Agente Coulson", "Doctor Erik Selving"},//3-21
@@ -244,7 +244,7 @@ void Play()
       
       printf("Tu puntaje es %d\n", puntaje);
       if (puntaje<5) 
-      { printf("�De verdad eres fan de marvel?\n");
+      { printf("¿De verdad eres fan de marvel?\n");
 	  } else if (puntaje=6)
 	  {printf("Seguro eres fan de marvel por moda\n");
 	  } else if (puntaje=7)
@@ -254,7 +254,7 @@ void Play()
 	  } else if (puntaje=9)
 	  {printf("Eres muy bueno\n");
 	  }
-	  else{printf("�Estas bien?\n");
+	  else{printf("¿Estas bien?\n");
 	  }
  
             system("pause");//pausa
@@ -320,4 +320,48 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 		i++;
 	}
 	fclose(DataFile);
+}
+users[userlndex]
+using namespace std;
+int main(){
+	int columna, columna2, columna3, columna4, q, k;
+	int x, y, z[100], mayor=0, menor=0, veces, veces2, acum1=0, acum2[100];
+	printf ("Escriba la cantidad de datos ");
+	scanf ("%i", &x);
+	for (y=1; y<=x; y++){
+		printf("Ingrese la frecuencia del dato %i ", y);
+		scanf("%i",&z[y]);
+		system ("cls");
+		if (mayor < z[y]){
+			mayor = z[y];
+		}
+		if (menor > z[y]){
+			menor = z[y];	
+		}
+	}
+	columna = mayor;
+	columna2 = mayor;
+	columna3 = mayor;
+	columna4 = mayor;
+	for (q=1; q <= columna; q++){
+		printf ("%i  ",columna2);
+		columna2=columna2-1;
+		for (k=1; k<=x; k++){
+			if (z[k]>=columna3){
+				printf ("* ");
+			}
+			else{
+				printf ("  ");
+			}
+		}
+		columna3 = columna3 -1;
+		printf  ("\n");
+	}
+	printf  ("  ");
+	for (columna4=1; columna4<=x;columna4++){
+		printf(" %i", columna4);
+	}
+	printf ("\n");
+	printf ("\n");
+	system ("pause");
 }
