@@ -96,10 +96,10 @@ void CreateProfile()
 	bool IsValid;
 	do
 	{
-		printf("Dame tu usuario: ");
+		printf("Dame un nombre de usuario: ");
 		fflush(stdin);
 		gets(VarUsName);
-		printf("Dame tu contrasena: ");
+		printf("Dame una contrasena: ");
 		gets(VarPassW);
 		IsValid = true;
 		for(int i = 0; i < ArraySize; i++)
