@@ -1,5 +1,5 @@
-a1 fdsa 5 5
-J2 aaaa 5 5
-a3 aaaa 5 5
-f4 aaaa 5 5
-a5 a5 0 0
+aaa 123 3 0 1 0 1 0 1
+bbb 123 0 0 0 0 0 0 0
+a1 123 0 0 0 0 0 0 0
+admin admin 0 2 0 0 0 0 0
+ccc 123 0 0 0 0 0 0 0

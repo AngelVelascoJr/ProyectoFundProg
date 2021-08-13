@@ -85,12 +85,6 @@ void LogIn()
 		}
 		if(IsValid == false)	printf("Usuario o contrasena incorrectos\n");
 	}while(IsValid == false);
-	Users[UserIndex].CalifPorJuego[0] = 10;		//eliminar despues, solo para debug
-	Users[UserIndex].CalifPorJuego[1] = 1;
-	Users[UserIndex].CalifPorJuego[2] = 2;
-	Users[UserIndex].CalifPorJuego[3] = 3;
-	Users[UserIndex].CalifPorJuego[4] = 0;
-	Users[UserIndex].CalifPorJuego[5] = 4;
 }
 
 void CreateProfile()
@@ -120,11 +114,11 @@ void CreateProfile()
 			}
 		}
 	}while(IsValid == false);
-	fprintf(DataFile, "\n%s %s %i %i", VarUsName, VarPassW, 0, 0);
+	fprintf(DataFile, "\n%s %s %i %i %i %i %i %i %i", VarUsName, VarPassW, 0, 0, 0, 0, 0, 0, 0);//nombre, contrasena, juegos jugados, cant de veces que obtuvo menosque5, 6, 7, 8, 9, 10
 	printf("Se ha guardado su perfil\n");
 	system("pause");
-	system("cls");
 	fclose(DataFile);
+	system("cls");
 }
 
 void Play()
@@ -166,7 +160,7 @@ void Play()
                                {"TChalla","MBaku","Njadaka", "Njobu"},//1-7
                                {"El chitauri","Los skrulls","el kree", "Los flerkens"},//1-8
                                {"Thor","Loki","El coleccionista", "Tony Stark"},//2-9
-                               {"Natalie Rushman ","Natalia Romanof","Nicole Rohan", "Naya rabe"},//1-10
+                               {"Natalie Rushman","Natalia Romanof","Nicole Rohan", "Naya rabe"},//1-10
                                {"Un trozo de tarta","Una pinta de cerveza","Una pila de panqueques", "Una taza de cafe"},//4-11
                                {"El Cotton Club","El Stork Club","El marruecos", "El copacabana"},//2-12
                                {"Budapest","Praga","Estanbul", "Sokovia"},//1-13
@@ -174,7 +168,7 @@ void Play()
                                {"Harry","Enrique","Harley", "Holden"},//3-15
                                {"En vomir","En una boveda em Asgard","Dentro de la espada de Sif", "Al coleccionista"},//4-16
                                {"Quien diablos es Bucky","Te conozco","El se fue", "Que dijiste"},//1-17
-                               {"Una tarjeta de seguridad, un tenedor y un monitor de tobillo.","Una banda de seguridad, una baterÃ­a y una pierna protesica.","Un par de binoculares, un detonador y una protesis de pierna.", "Un cuchillo, cables y la cinta de mezcla de Peter."},//2-18
+                               {"Una tarjeta de seguridad, un tenedor y un monitor de tobillo.","Una banda de seguridad, una bateria y una pierna protesica.","Un par de binoculares, un detonador y una protesis de pierna.", "Un cuchillo, cables y la cinta de mezcla de Peter."},//2-18
                                {"Culo","Estupido","Mierda", "Idiota"},//3-19
                                {"Raton","Oveja","Pato", "Hamster"},//2-20
                                {"Maria Hill","Nick Fury","Agente Coulson", "Doctor Erik Selving"},//3-21
@@ -187,7 +181,14 @@ void Play()
                                };
       int buenas[25]={1,1,2,1,0,1,0,0,1,0,3,1,0,3,2,3,0,1,2,1,
                       2,0,0,2,0};//#respuesta-1
-      int i,j,k,pregun,pexiste,rexiste,bien,respondio,puntaje ;
+                      
+	  /*char buenas[26][100]={"2008","Mjolnir","Que estan formando un equipo","Vibranio","Gatos",
+	  				   "JARVIS","TChalla","El chitauri","Loki","Natalie Rushman",
+					   "Una taza de cafe","El Stork Club","Budapest","Gamora","Harley"
+					   "Al coleccionista","Quien diablos es Bucky","Una banda de seguridad, una bateria y una pierna protesica.","Mierda","Oveja"
+					   "Agente Coulson","Shuri","Monumento de Washington","Te quiero de vuelta  The Jackson 5","Neurocirujano"};
+					   */
+      int i,j,k,pregun,pexiste,rexiste,bien,respondio,puntaje = 0;
       int pregunta[10];
       int respuesta[4];
       srand(time(NULL));//para que los numeros sean al azar siempre
@@ -223,32 +224,47 @@ void Play()
             		//printf("\tse busca dentro de respuestas[pregunta[%i]][respuesta[%i]]\n", i, k);
             		//printf("\tes decir dentro de respuestas[%i][%i]\n", pregunta[i], respuesta[k]);
             		//printf("\trespuesta referida al valor aleatorio: %s\n", respuestas[pregunta[i]][respuesta[k]]);
-                   //if(i!=1)
+                   if(k!=0)
                    {
                            //j=k;
-                           for(j=k;j>(-1);j--)
+                           for(j=k;j>(0);j--)
                            {
                            	    //printf("\t\tvalor de i: %i, valor de j: %i, valor de k: %i\n", i, j, k);
-
+								//printf("\t\tcomparando respuesta[%i] con respuesta[%i]\n", k, j);
+								//printf("\t\tcomparando %i con %i\n", respuesta[k], respuesta[j-1]);
                                  if(respuesta[k]==respuesta[j-1])//cuando ya se uso ya no se usa
                                  {
                                      rexiste=1;
+                                     //printf("\t\t\tpreguntas iguales, cambiando\n");
                                  }
+                                 else
+								 {
+								 	//rexiste=0;
+								 	//printf("\t\t\tdiferentes preguntas, imprimientdo\n");
+									 }	
                            }
                    }
                }while(rexiste==1);
                 //printf("\timprimiendo la respuesta en respuestas[pregunta[%i]][respuesta[%i]] = %s\n", i, k, respuestas[pregunta[i]][respuesta[k]]);
                printf("%d.- %s\n ",k+1,respuestas[pregunta[i]][respuesta[k]]);//impprime la posibles respuesta "\t" en vez de  "\n"
-               if(k==buenas[pregunta[i]]) //calcula cual es numero de la respuesta buena
+               /*if(k==buenas[pregunta[i]]) //calcula cual es numero de la respuesta buena
                {
                	//printf("valor de bien: %i", k);
                   bien=k;
-               }
+               }*/
  
           }
           printf("Respuesta: ");
                scanf("%d",&respondio);
-               if((respondio-1)==bien)//evalua si la respuesta fue la correcta
+               if(respuesta[respondio-1]==buenas[pregunta[i]])
+               //if((respondio-1)==bien)//evalua si la respuesta fue la correcta
+               /*printf("correcta: %s\n", buenas[pregunta[i]]);
+               printf("pos 0: %s\n", respuestas[pregunta[i]][0]);
+               printf("pos 1: %s\n", respuestas[pregunta[i]][1]);
+               printf("pos 2: %s\n", respuestas[pregunta[i]][2]);
+               printf("pos 3: %s\n", respuestas[pregunta[i]][3]);
+               printf("elegida: %s\n", respuestas[pregunta[i]][respondio-1]);
+               if(strcmp(buenas[pregunta[i]], respuestas[pregunta[i]][respondio-1]) == 0)*/
                {
                     printf("Correcto ");
                     puntaje++;
@@ -257,22 +273,28 @@ void Play()
                {
                    printf("Incorrecto ");
                }
- 
+               //printf("puntaje: %i", puntaje);
       }
       
       printf("Tu puntaje es %d\n", puntaje);
       if (puntaje<=5) 
       { printf("De verdad eres fan de marvel?\n");
+      Users[UserIndex].CalifPorJuego[0]++;
 	  } else if (puntaje==6)
 	  {printf("Seguro eres fan de marvel por moda\n");
+	  Users[UserIndex].CalifPorJuego[1]++;
 	  } else if (puntaje==7)
 	  {printf("Bueno al menos sabes algo\n");
+	  Users[UserIndex].CalifPorJuego[2]++;
 	  } else if (puntaje==8)
 	  {printf("Perfecto, ni tan geek ,ni tan poser\n");
+	  Users[UserIndex].CalifPorJuego[3]++;
 	  } else if (puntaje==9)
 	  {printf("Eres muy bueno\n");
+	  Users[UserIndex].CalifPorJuego[4]++;
 	  }
 	  else{printf("Estas bien?\n");
+	  Users[UserIndex].CalifPorJuego[5]++;
 	  }
  
             system("pause");//pausa
@@ -327,6 +349,7 @@ void Stadistics()
 	system("cls");
 }
 
+
 void DataFromFile()	//carga el archivo de perfiles
 {
 	DataFile = fopen("file.txt" , "r");
@@ -349,7 +372,7 @@ void DataFromFile()	//carga el archivo de perfiles
 	DataFile = fopen("file.txt" , "r");
 	while(i < ArraySize)
 	{
-		char Var[40], JJ[3], JG[3];
+		char Var[80], JJ[3], JG[3], m5[3], v6[3], v7[3], v8[3], v9[3], v10[3];
 		int j = 0;
 		for (char c = getc(DataFile); c != '\n'; c = getc(DataFile))
 		{
@@ -360,9 +383,15 @@ void DataFromFile()	//carga el archivo de perfiles
 			}
 			if(c == EOF)	break;
 		}
-		sscanf(Var,"%s %s %s %s", &Users[i].Username, &Users[i].Password, &JJ, &JG);
+		sscanf(Var,"%s %s %s %s %s %s %s %s %s", &Users[i].Username, &Users[i].Password, &JJ, &m5, &v6, &v7, &v8, &v9, &v10/*&JJ, &JG*/);
 		Users[i].JuegosJugados = strtol(JJ,NULL,10);
-		Users[i].JuegosGanados = strtol(JG,NULL,10);
+		//Users[i].JuegosGanados = strtol(JG,NULL,10);
+		Users[i].CalifPorJuego[0] = strtol(m5,NULL,10);
+		Users[i].CalifPorJuego[1] = strtol(v6,NULL,10);
+		Users[i].CalifPorJuego[2] = strtol(v7,NULL,10);
+		Users[i].CalifPorJuego[3] = strtol(v8,NULL,10);
+		Users[i].CalifPorJuego[4] = strtol(v9,NULL,10);
+		Users[i].CalifPorJuego[5] = strtol(v10,NULL,10);
 		i++;
 	}
 	fclose(DataFile);
@@ -375,11 +404,10 @@ void DataToFile()	//salva el struct de perfiles en el archivo
 	while(i < ArraySize)
 	{
 		if(i == ArraySize - 1)
-			fprintf(DataFile, "%s %s %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].JuegosGanados);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		else
-			fprintf(DataFile, "%s %s %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].JuegosGanados);
+			fprintf(DataFile, "%s %s %i %i %i %i %i %i %i\n", &Users[i].Username, &Users[i].Password, Users[i].JuegosJugados, Users[i].CalifPorJuego[0], Users[i].CalifPorJuego[1], Users[i].CalifPorJuego[2], Users[i].CalifPorJuego[3], Users[i].CalifPorJuego[4], Users[i].CalifPorJuego[5]);
 		i++;
 	}
 	fclose(DataFile);
 }
-
