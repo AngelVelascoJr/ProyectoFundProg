@@ -181,13 +181,6 @@ void Play()
                                };
       int buenas[25]={1,1,2,1,0,1,0,0,1,0,3,1,0,3,2,3,0,1,2,1,
                       2,0,0,2,0};//#respuesta-1
-                      
-	  /*char buenas[26][100]={"2008","Mjolnir","Que estan formando un equipo","Vibranio","Gatos",
-	  				   "JARVIS","TChalla","El chitauri","Loki","Natalie Rushman",
-					   "Una taza de cafe","El Stork Club","Budapest","Gamora","Harley"
-					   "Al coleccionista","Quien diablos es Bucky","Una banda de seguridad, una bateria y una pierna protesica.","Mierda","Oveja"
-					   "Agente Coulson","Shuri","Monumento de Washington","Te quiero de vuelta  The Jackson 5","Neurocirujano"};
-					   */
       int i,j,k,pregun,pexiste,rexiste,bien,respondio,puntaje = 0;
       int pregunta[10];
       int respuesta[4];
@@ -197,12 +190,9 @@ void Play()
            do{
                pexiste=0;
                pregunta[i]=rand()%25;//selecciona lazar una pregunta
-               //if(i!=1)
                {
-                       //j=i;
                        for(j=i;j>(-1);j--)							
                        {
-                       	//printf("entro");
                              if(pregunta[i]==pregunta[j-1])			
                              {										
                                  pexiste=1;							
@@ -210,9 +200,6 @@ void Play()
                        }
                }
            }while(pexiste==1);
-		//printf("la pregunta que se guardo es: %s\n", preguntas[pregunta[i]]);
-		//printf("\tLas respuestas guardadas son: %s, %s, %s, %s\n", respuestas[pregunta[i]][0], respuestas[pregunta[i]][1], respuestas[pregunta[i]][2], respuestas[pregunta[i]][3]);
-
           printf("\n%s %d\n",preguntas[pregunta[i]],pregunta[i]);//se imprime el enunciado de la pregunta
  
           for(k=0;k<4;k++)//se imprimen sus 4 posibles respuestas alazar
@@ -220,51 +207,25 @@ void Play()
                 do{
                    rexiste=0;
                    respuesta[k]=(rand()%4);//selecciona lazar una posible respuesta
-            		//printf("\tvalor aleatorio de respuesta es: %i\n", respuesta[k]);
-            		//printf("\tse busca dentro de respuestas[pregunta[%i]][respuesta[%i]]\n", i, k);
-            		//printf("\tes decir dentro de respuestas[%i][%i]\n", pregunta[i], respuesta[k]);
-            		//printf("\trespuesta referida al valor aleatorio: %s\n", respuestas[pregunta[i]][respuesta[k]]);
                    if(k!=0)
                    {
-                           //j=k;
                            for(j=k;j>(0);j--)
                            {
-                           	    //printf("\t\tvalor de i: %i, valor de j: %i, valor de k: %i\n", i, j, k);
-								//printf("\t\tcomparando respuesta[%i] con respuesta[%i]\n", k, j);
-								//printf("\t\tcomparando %i con %i\n", respuesta[k], respuesta[j-1]);
                                  if(respuesta[k]==respuesta[j-1])//cuando ya se uso ya no se usa
                                  {
                                      rexiste=1;
-                                     //printf("\t\t\tpreguntas iguales, cambiando\n");
                                  }
                                  else
 								 {
-								 	//rexiste=0;
-								 	//printf("\t\t\tdiferentes preguntas, imprimientdo\n");
-									 }	
+								 }	
                            }
                    }
                }while(rexiste==1);
-                //printf("\timprimiendo la respuesta en respuestas[pregunta[%i]][respuesta[%i]] = %s\n", i, k, respuestas[pregunta[i]][respuesta[k]]);
                printf("%d.- %s\n ",k+1,respuestas[pregunta[i]][respuesta[k]]);//impprime la posibles respuesta "\t" en vez de  "\n"
-               /*if(k==buenas[pregunta[i]]) //calcula cual es numero de la respuesta buena
-               {
-               	//printf("valor de bien: %i", k);
-                  bien=k;
-               }*/
- 
           }
           printf("Respuesta: ");
                scanf("%d",&respondio);
                if(respuesta[respondio-1]==buenas[pregunta[i]])
-               //if((respondio-1)==bien)//evalua si la respuesta fue la correcta
-               /*printf("correcta: %s\n", buenas[pregunta[i]]);
-               printf("pos 0: %s\n", respuestas[pregunta[i]][0]);
-               printf("pos 1: %s\n", respuestas[pregunta[i]][1]);
-               printf("pos 2: %s\n", respuestas[pregunta[i]][2]);
-               printf("pos 3: %s\n", respuestas[pregunta[i]][3]);
-               printf("elegida: %s\n", respuestas[pregunta[i]][respondio-1]);
-               if(strcmp(buenas[pregunta[i]], respuestas[pregunta[i]][respondio-1]) == 0)*/
                {
                     printf("Correcto ");
                     puntaje++;
@@ -273,7 +234,6 @@ void Play()
                {
                    printf("Incorrecto ");
                }
-               //printf("puntaje: %i", puntaje);
       }
       
       printf("Tu puntaje es %d\n", puntaje);
@@ -296,7 +256,6 @@ void Play()
 	  else{printf("Estas bien?\n");
 	  Users[UserIndex].CalifPorJuego[5]++;
 	  }
- 
             system("pause");//pausa
 		system("cls");
 }
@@ -307,7 +266,6 @@ void Stadistics()
 	int x = 6, y, z[100], mayor=0, menor=0;
 	for (y=1; y<=x; y++){
 		z[y] = Users[UserIndex].CalifPorJuego[y-1];
-		//system ("cls");
 		if (mayor < z[y]){
 			mayor = z[y];
 		}
